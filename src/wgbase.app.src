@@ -1,4 +1,4 @@
-{application, wgbase
+{application, wgbase,
     [{description, "the wg base libarary"},
      {vsn, "0.1"},
      {modules, ['check', 'wg_config', 'wg_cron_server', 'wg_crontab_parse', 'wg_ctl', 'wg', 'wg_hooks', 'wg_httpc', 'wg_loglevel', 'wg_mnesia', 'wg_odbc', 'wg_odbc_sup', 'wg_session', 'wg_sns_renren', 'wg_timer_mgr', 'wg_tmp_sup', 'wg_user_auth']},
