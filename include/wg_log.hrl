@@ -35,33 +35,35 @@
 
   %% optionally use log4erl as the logger
   %% to enable, compile with:
-  %% $ USE_LOG4ERL=1 make
-  -ifdef(USE_LOG4ERL).
+  %% $ USE_LAGER=1 make
+  -ifdef(USE_LAGER).
+  
+    -compile([{parse_transform, lager_transform}]).
 
     -define(DEBUG(F),
-        log4erl:debug("~p:~p " ++ F, [?MODULE, ?LINE])).
+        lager:debug("~p:~p " ++ F, [?MODULE, ?LINE])).
     -define(DEBUG2(F, D),
-        log4erl:debug("~p:~p " ++ F, [?MODULE, ?LINE | D])).
+        lager:debug("~p:~p " ++ F, [?MODULE, ?LINE | D])).
 
     -define(INFO(F),
-        log4erl:info("~p:~p " ++ F, [?MODULE, ?LINE])).
+        lager:info("~p:~p " ++ F, [?MODULE, ?LINE])).
     -define(INFO2(F, D),
-        log4erl:info("~p:~p " ++ F, [?MODULE, ?LINE | D])).
+        lager:info("~p:~p " ++ F, [?MODULE, ?LINE | D])).
 
     -define(WARN(F),
-        log4erl:warn("~p:~p " ++ F, [?MODULE, ?LINE])).
+        lager:warn("~p:~p " ++ F, [?MODULE, ?LINE])).
     -define(WARN2(F, D),
-        log4erl:warn("~p:~p " ++ F, [?MODULE, ?LINE | D])).
+        lager:warn("~p:~p " ++ F, [?MODULE, ?LINE | D])).
 
     -define(ERROR(F),
-        log4erl:error("~p:~p " ++ F, [?MODULE, ?LINE])).
+        lager:error("~p:~p " ++ F, [?MODULE, ?LINE])).
     -define(ERROR2(F, D),
-        log4erl:error("~p:~p " ++ F, [?MODULE, ?LINE | D])).
+        lager:error("~p:~p " ++ F, [?MODULE, ?LINE | D])).
 
     -define(CRITICAL(F),
-        log4erl:fatal("~p:~p " ++ F, [?MODULE, ?LINE])).
+        lager:critical("~p:~p " ++ F, [?MODULE, ?LINE])).
     -define(CRITICAL2(F, D),
-        log4erl:fatal("~p:~p " ++ F, [?MODULE, ?LINE | D])).
+        lager:critical("~p:~p " ++ F, [?MODULE, ?LINE | D])).
 
   -else.
 
